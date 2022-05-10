@@ -1,0 +1,17 @@
+{
+  "/": {
+    "right_tag": 0,
+    "left_tag": 1,
+    "anchor": 10
+  },
+  "/Jackal1/": {
+    "right_tag": 0,
+    "left_tag": 1,
+    "anchor": 10
+  },
+  "/Jackal2/": {
+    "right_tag": 2,
+    "left_tag": 3,
+    "anchor": 11
+  }
+}

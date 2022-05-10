@@ -1,0 +1,20 @@
+<launch>
+    <node pkg="gtec_gazebo2ros" type="gazebo_auto_guide" name="gazebo_auto_guide" output="screen">
+        <param name="start_time" value="10"/>
+        <param name="route_file" textfile="$(find uwb_localization)/path/route1.xml"/>
+        <remap from="gazebo_auto_guide/guide_cmd_vel" to="/jackal_velocity_controller/cmd_vel"/>
+
+        <param name="max_reps" value="2"/>
+        <param name="record_log" value="0"/>
+
+         <param name="rosbagPath" value="$(find uwb_localization)/rosbag"></param>
+        <param name="workspace" value="/home/marius/catkin_ws"></param>
+        
+        <!-- <param name="restart_on_finish" value="1"/> -->
+    </node>
+
+    <node pkg="rosbag" type="record" name="rosbag_record_odom"
+       args="record --duration=124s -o $(find uwb_localization)/rosbag/ /gtec/toa/anchors /gtec/toa/ranging /odometry/filtered /jackal_velocity_controller/odom /tf"/>   
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find uwb_localization)/config/jackal.rviz" />
+</launch>

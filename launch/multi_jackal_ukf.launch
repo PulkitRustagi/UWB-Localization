@@ -1,0 +1,14 @@
+<launch>
+    <group ns="Jackal1">
+        <node pkg="uwb_localization" name="uwb_kalman_localization" type="ukf_uwb_localization.py" output="screen" />
+    </group>
+
+    <group ns="Jackal2">
+        <node pkg="uwb_localization" name="uwb_kalman_localization" type="ukf_uwb_localization.py" output="screen" />
+    </group>
+
+    <node pkg="uwb_localization" name="position_plotter" type="location_drawer.py" args="/Jackal1/ground_truth/state /Jackal2/ground_truth/state /Jackal1/uwb/odom /Jackal2/uwb/odom "/>
+
+    <node pkg="uwb_localization" name="jackal_1_range_drawer" type="range_drawer.py" args="0 1"/>
+    <node pkg="uwb_localization" name="jackal_2_range_drawer" type="range_drawer.py" args="2 3"/>
+</launch>

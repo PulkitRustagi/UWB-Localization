@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="uwb_localization" name="jackal_position_publisher" type="actual_robot_position.py" output="screen" args="/world /base_link" />
+    <node pkg="uwb_localization" name="range_plotter" type="range_drawer.py" output="screen"/>
+    
+    <node pkg="uwb_localization" name="uwb_kalman_localization" type="uwb_localization.py" output="screen" />
+    <node pkg="uwb_localization" name="position_plotter" type="location_drawer.py" output="screen"/>
+</launch>

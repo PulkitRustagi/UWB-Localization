@@ -1,0 +1,11 @@
+<launch>
+    <group ns="Jackal1">
+        <node pkg="uwb_localization" name="jackal" type="jackal.py" output="screen" />
+    </group>
+
+    <group ns="Jackal2">
+        <node pkg="uwb_localization" name="jackal" type="jackal.py" output="screen" />
+    </group>
+
+    <!-- <node pkg="uwb_localization" name="position_plotter" type="location_drawer.py"/> -->
+</launch>
